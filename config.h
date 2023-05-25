@@ -96,7 +96,7 @@ static const uint32_t send_events_mode = LIBINPUT_CONFIG_SEND_EVENTS_ENABLED;
 LIBINPUT_CONFIG_ACCEL_PROFILE_FLAT
 LIBINPUT_CONFIG_ACCEL_PROFILE_ADAPTIVE
 */
-static const enum libinput_config_accel_profile accel_profile = LIBINPUT_CONFIG_ACCEL_PROFILE_ADAPTIVE;
+static const enum libinput_config_accel_profile accel_profile = LIBINPUT_CONFIG_ACCEL_PROFILE_FLAT;
 static const double accel_speed = 0.0;
 /* You can choose between:
 LIBINPUT_CONFIG_TAP_MAP_LRM -- 1/2/3 finger tap maps to left/right/middle
@@ -117,7 +117,7 @@ static const enum libinput_config_tap_button_map button_map = LIBINPUT_CONFIG_TA
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
-static const char *termcmd[] = { "alacritty", NULL };
+static const char *termcmd[] = { "foot", NULL };
 static const char *menucmd[] = { "bemenu-run2", NULL };
 
 /* no van aún */
@@ -150,20 +150,32 @@ static const Key keys[] = {
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_space,      togglefloating, {0} },
 	{ MODKEY,                    XKB_KEY_f,         togglefullscreen, {0} },
 	{ MODKEY,                    XKB_KEY_0,          view,           {.ui = ~0} },
-	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_parenright, tag,            {.ui = ~0} },
+	/* { MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_parenright, tag,            {.ui = ~0} }, */
+	/* { MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_parenright, tag,            {.ui = ~0} }, */
+	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_equal,       tag,            {.ui = ~0} },
+	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_equal,       tag,            {.ui = ~0} },
 	{ MODKEY,                    XKB_KEY_comma,      focusmon,       {.i = WLR_DIRECTION_LEFT} },
 	{ MODKEY,                    XKB_KEY_period,     focusmon,       {.i = WLR_DIRECTION_RIGHT} },
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_less,       tagmon,         {.i = WLR_DIRECTION_LEFT} },
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_greater,    tagmon,         {.i = WLR_DIRECTION_RIGHT} },
+	/* TAGKEYS(          XKB_KEY_1, XKB_KEY_exclam,                     0), */
+	/* TAGKEYS(          XKB_KEY_2, XKB_KEY_at,                         1), */
+	/* TAGKEYS(          XKB_KEY_3, XKB_KEY_numbersign,                 2), */
+	/* TAGKEYS(          XKB_KEY_4, XKB_KEY_dollar,                     3), */
+	/* TAGKEYS(          XKB_KEY_5, XKB_KEY_percent,                    4), */
+	/* TAGKEYS(          XKB_KEY_6, XKB_KEY_asciicircum,                5), */
+	/* TAGKEYS(          XKB_KEY_7, XKB_KEY_ampersand,                  6), */
+	/* TAGKEYS(          XKB_KEY_8, XKB_KEY_asterisk,                   7), */
+	/* TAGKEYS(          XKB_KEY_9, XKB_KEY_parenleft,                  8), */
 	TAGKEYS(          XKB_KEY_1, XKB_KEY_exclam,                     0),
-	TAGKEYS(          XKB_KEY_2, XKB_KEY_at,                         1),
-	TAGKEYS(          XKB_KEY_3, XKB_KEY_numbersign,                 2),
+	TAGKEYS(          XKB_KEY_2, XKB_KEY_quotedbl,                         1),
+	TAGKEYS(          XKB_KEY_3, XKB_KEY_periodcentered,                 2),
 	TAGKEYS(          XKB_KEY_4, XKB_KEY_dollar,                     3),
 	TAGKEYS(          XKB_KEY_5, XKB_KEY_percent,                    4),
-	TAGKEYS(          XKB_KEY_6, XKB_KEY_asciicircum,                5),
-	TAGKEYS(          XKB_KEY_7, XKB_KEY_ampersand,                  6),
-	TAGKEYS(          XKB_KEY_8, XKB_KEY_asterisk,                   7),
-	TAGKEYS(          XKB_KEY_9, XKB_KEY_parenleft,                  8),
+	TAGKEYS(          XKB_KEY_6, XKB_KEY_ampersand,                5),
+	TAGKEYS(          XKB_KEY_7, XKB_KEY_slash,                  6),
+	TAGKEYS(          XKB_KEY_8, XKB_KEY_parenleft,                   7),
+	TAGKEYS(          XKB_KEY_9, XKB_KEY_parenright,                  8),
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_Q,          quit,           {0} },
 
 	{ MODKEY,                    XKB_KEY_r,          spawn,          SHCMD("menuremote") },
